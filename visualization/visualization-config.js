@@ -6,7 +6,8 @@ app.factory("VisualizationConfig", function(
     CONTEXT_TYPES,
     VIS_DATA_TYPES,
     VIS_NAMES,
-    WordCloud
+    WordCloud,
+    Icicle
 ) {
     var config = {};
 
@@ -35,7 +36,11 @@ app.factory("VisualizationConfig", function(
     //enter the visualization configurations here////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////
     config.visualizations.WordCloud =
-        createVisObject(VIS_NAMES.WORD_CLOUD, WordCloud, [CONTEXT_TYPES.NODE, CONTEXT_TYPES.EDGE], [VIS_DATA_TYPES.TEXT])
+        createVisObject(VIS_NAMES.WORD_CLOUD, WordCloud, [CONTEXT_TYPES.NODE, CONTEXT_TYPES.EDGE], [VIS_DATA_TYPES.TEXT]);
+
+    config.visualizations.Icicle =
+        createVisObject(VIS_NAMES.ICICLE, Icicle, [CONTEXT_TYPES.NODE, CONTEXT_TYPES.EDGE, CONTEXT_TYPES.GRAPH],
+            [VIS_DATA_TYPES.HIERARCHY, VIS_DATA_TYPES.SCHEMA]);
 
 
     return config;

@@ -3,5 +3,6 @@ config.constant("VIS_DATA_TYPES", {
     NUMERICAL : "NUMERICAL",
     DATE : "DATE",
     TEXT : "TEXT",
-    SCHEMA : "SCHEMA"
+    SCHEMA : "SCHEMA",
+    HIERARCHY : "HIERARCHY"
 });

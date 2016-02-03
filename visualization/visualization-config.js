@@ -2,7 +2,7 @@
  * Register your visualization properties here. This configuration is used by the VisualizationService to provide
  * users with visualizations.
  */
-config.factory("VisualizationConfig", function(
+app.factory("VisualizationConfig", function(
     CONTEXT_TYPES,
     VIS_DATA_TYPES,
     VIS_NAMES,

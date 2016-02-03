@@ -53,7 +53,7 @@ app.factory('BasicVisualization',function(
      * @returns {*} the prepared data
      */
     BasicVisualization.prototype.convertIfExists = function(data, convertFunc) {
-        if(!convertFunc) {
+        if(convertFunc) {
             data = convertFunc(data);
         }
 

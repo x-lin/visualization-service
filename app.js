@@ -9,6 +9,8 @@ app.controller('Controller', function (
     VIS_NAMES
 ) {
     var convert = function(data) {
+        console.log("in convert");
+
         //simulating results from db
         data = [data];
 

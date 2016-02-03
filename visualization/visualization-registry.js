@@ -84,12 +84,12 @@ app.factory('VisualizationRegistry',function(
     //public functions//////////////
     ////////////////////////////////
 
-    registry.registerVisualization = function(name, visualization, visContexts, dataTypes) {
+    registry.registerVisualization = function(name, prototype, visContexts, dataTypes) {
         visContexts = checkAndReturnSet(visContexts, CONTEXT_TYPES);
         dataTypes = checkAndReturnSet(dataTypes, VIS_DATA_TYPES);
 
         //everything is ok, register visualization object to registry
-        registerToInternalRegistry(name, visualization, visContexts, dataTypes);
+        registerToInternalRegistry(name, prototype, visContexts, dataTypes);
 
         //add them to indices to speed up lookups
         addToDataTypeIndex(name, dataTypes);
@@ -103,7 +103,6 @@ app.factory('VisualizationRegistry',function(
      * @returns {*|Array}
      */
     registry.getDataTypes = function(name) {
-        console.log(internalRegistry);
         return internalRegistry[name].dataTypes;
     };
 
@@ -124,7 +123,6 @@ app.factory('VisualizationRegistry',function(
      * @returns {*}
      */
     registry.getVisualization = function(name) {
-        console.log(internalRegistry);
         return internalRegistry[name].prototype;
     };
 
@@ -141,12 +139,7 @@ app.factory('VisualizationRegistry',function(
             results = visContextIndex[visContext];
 
             if(!dataType && !results) {
-                var i = 0;
-
                 results.filter(function(n) {
-                    i++;
-                    var r = dataTypeIndex[dataType];
-                    console.log(dataTypeIndex[dataType].indexOf(n));
                     return dataTypeIndex[dataType].indexOf(n) !== -1;
                 });
             }
